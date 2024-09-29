@@ -47,6 +47,9 @@ export abstract class BackendError extends Error {
   private async reportError() {
     const url = new URL("/api/v1/error/log", getServerUrlBase());
     
+	console.log("sending error logging POST request to ", url, " with body ", this.data)
+	console.log("using protection bypass header ", process.env.VERCEL_AUTOMATION_BYPASS_SECRET)
+
     const res = await fetch(url, {
       method: "POST",
       body: JSON.stringify(this.data),
