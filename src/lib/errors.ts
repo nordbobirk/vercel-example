@@ -33,7 +33,7 @@ export type BackendErrorData = BackendErrorInput & {
  * Abstract class for all backend errors
  */
 export abstract class BackendError extends Error {
-  data: BackendErrorData;
+  data: BackendErrorData
 
   constructor(data: AbstractBackendErrorInput) {
     super(`${data.category}BackendError`);
